@@ -64,9 +64,7 @@
     "build": "next build",
     "export": "EXPORT=true next build && EXPORT=true next export",
     "analyze": "ANALYZE=true next build",
-    "start": "next start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "start": "next start"
   },
   "babelMacros": {
     "twin": {
