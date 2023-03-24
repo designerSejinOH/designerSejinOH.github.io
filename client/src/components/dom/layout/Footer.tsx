@@ -1,13 +1,14 @@
 import * as S from './styles'
 import { AiOutlineGithub, AiOutlineInstagram } from 'react-icons/ai'
+import { BsLightbulb } from 'react-icons/bs'
 import { FaVimeoSquare } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
-const Footer = ({ isHome }) => {
+const Footer = ({ isHome }: { isHome: boolean }) => {
   const router = useRouter()
 
   return (
-    <S.Footer>
+    <S.Footer isHome={isHome}>
       {!isHome && (
         <S.BottomToTop
           onClick={() => {

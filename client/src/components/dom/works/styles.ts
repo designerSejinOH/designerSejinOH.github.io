@@ -213,6 +213,7 @@ export const FieldDetail = styled.div`
   flex-col 
   w-full
   h-fit
+  text-black
   `}
 `
 
@@ -227,7 +228,6 @@ export const FieldContentTitle = styled.div`
   flex-row
   justify-start
   items-center
-  text-[blue]
   font-[medium]
   text-xs
   md:text-base

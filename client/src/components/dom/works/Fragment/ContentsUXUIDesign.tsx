@@ -47,7 +47,7 @@ export const ContentsUXUIDesign = () => {
                 onClick={() => {
                   router.push(item.link)
                 }}
-                className='w-10 h-10 cursor-pointer text-[blue]'
+                className='w-10 h-10 cursor-pointer text-black'
                 aria-label='behance'
               />
             </S.FieldContentTitle>

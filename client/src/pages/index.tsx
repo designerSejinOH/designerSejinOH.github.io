@@ -8,9 +8,39 @@ import Header from '@/components/dom/layout/Header'
 import { ScaledModel } from '@/templates/hooks/ScaledModel'
 import { ScaledCamera } from '@/templates/hooks/ScaledCamera'
 import Footer from '@/components/dom/layout/Footer'
+import { useEffect, useState } from 'react'
+import * as S from '@/components/dom/layout/styles'
 extend({ UnrealBloomPass })
 
 export default function Page(props) {
+  const [WebDesign, turnWebDesign] = useState(false)
+  const [UxUiDesign, turnUxUiDesign] = useState(false)
+  const [MediaArt, turnMediaArt] = useState(false)
+  const [GraphicDesign, turnGraphicDesign] = useState(false)
+  const [bloom, turnBloom] = useState(false)
+
+  const turnOFFBloom = () => {
+    turnBloom(false)
+    turnWebDesign(false)
+    turnUxUiDesign(false)
+    turnMediaArt(false)
+    turnGraphicDesign(false)
+  }
+  const turnONBloom = () => {
+    turnBloom(true)
+    turnWebDesign(true)
+    turnUxUiDesign(true)
+    turnMediaArt(true)
+    turnGraphicDesign(true)
+  }
+  useEffect(() => {
+    if (WebDesign === true || UxUiDesign === true || MediaArt === true || GraphicDesign === true) {
+      turnBloom(true)
+    } else {
+      turnBloom(false)
+    }
+  }, [WebDesign, UxUiDesign, MediaArt, GraphicDesign])
+  console.log('web' + WebDesign, 'UX' + UxUiDesign, 'Media' + MediaArt, 'Graphic' + GraphicDesign)
   return (
     <>
       <Header />
@@ -28,10 +58,46 @@ export default function Page(props) {
               // @ts-ignore */}
               <unrealBloomPass attachArray='passes' args={[undefined, 1, 0.5, 0]} />
             </Effects>
-            <LinkText position={[0, 2, 0]} size={1.5} text={'WEB DESIGN'} mass={100} />
-            <LinkText position={[0, 2, 0]} size={1.5} text={'UX|UI DESIGN'} mass={100} />
-            <LinkText position={[0, 2, 0]} size={1.5} text={'MEDIA ART'} mass={100} />
-            <LinkText position={[0, 2, 0]} size={1.5} text={'GRAPHIC DESGIGN'} mass={100} />
+            <LinkText
+              onClick={() => {
+                turnWebDesign(!WebDesign)
+              }}
+              bloom={WebDesign}
+              position={[0, 2, 0]}
+              size={1.5}
+              text={'WEB DESIGN'}
+              mass={100}
+            />
+            <LinkText
+              onClick={() => {
+                turnUxUiDesign(!UxUiDesign)
+              }}
+              bloom={UxUiDesign}
+              position={[0, 2, 0]}
+              size={1.5}
+              text={'UX|UI DESIGN'}
+              mass={100}
+            />
+            <LinkText
+              onClick={() => {
+                turnMediaArt(!MediaArt)
+              }}
+              bloom={MediaArt}
+              position={[0, 2, 0]}
+              size={1.5}
+              text={'MEDIA ART'}
+              mass={100}
+            />
+            <LinkText
+              onClick={() => {
+                turnGraphicDesign(!GraphicDesign)
+              }}
+              bloom={GraphicDesign}
+              position={[0, 2, 0]}
+              size={1.5}
+              text={'GRAPHIC DESIGN'}
+              mass={100}
+            />
             <RigidBody colliders='cuboid'>
               <Plane position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} />
             </RigidBody>
@@ -43,6 +109,21 @@ export default function Page(props) {
         </Scene>
       </div>
       <Footer isHome={true} />
+      {bloom ? (
+        <S.BottomToSwitch
+          onClick={() => {
+            turnOFFBloom()
+          }}>
+          OFF
+        </S.BottomToSwitch>
+      ) : (
+        <S.BottomToSwitch
+          onClick={() => {
+            turnONBloom()
+          }}>
+          ON
+        </S.BottomToSwitch>
+      )}
     </>
   )
 }
@@ -50,7 +131,7 @@ export const Plane = ({ ...props }) => {
   return (
     <group {...props}>
       <mesh>
-        <planeGeometry args={[1000, 1000]} receiveShadows />
+        <planeGeometry args={[1000, 1000]} />
         <meshBasicMaterial color='darkblue' transparent opacity={1} />
       </mesh>
     </group>

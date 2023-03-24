@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 import { LayerMaterial, Depth, Fresnel } from 'lamina'
 import { ScaledModel } from '@/templates/hooks/ScaledModel'
 
-export default function LinkText({ size, text, ...props }) {
+export default function LinkText({ bloom, size, text, ...props }) {
   const mesh = useRef<THREE.Mesh>()
   const router = useRouter()
   const [hovered, hover] = useState(false)
@@ -116,9 +116,7 @@ export default function LinkText({ size, text, ...props }) {
               isMesh={undefined}
               updateMorphTargets={undefined}>
               {text}
-              {!hovered ? (
-                <meshStandardMaterial attach='material' color='gray' roughness={0.1} metalness={0.9} />
-              ) : (
+              {bloom ? (
                 <LayerMaterial
                   ref={materialRef}
                   toneMapped={false}
@@ -283,6 +281,8 @@ export default function LinkText({ size, text, ...props }) {
                   />
                   <Fresnel mode='add' color='white' intensity={0.5} power={1.5} bias={0.05} />
                 </LayerMaterial>
+              ) : (
+                <meshStandardMaterial attach='material' color='gray' roughness={0.1} metalness={0.9} />
               )}
             </Text3D>
           </mesh>

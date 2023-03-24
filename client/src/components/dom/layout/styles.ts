@@ -112,7 +112,9 @@ export const MenuModalItemHidden = styled.p`
   `}
 `
 
-export const Footer = styled.div`
+export const Footer = styled.div<{
+  isHome: boolean
+}>`
   ${tw`
   fixed
   bottom-0
@@ -122,7 +124,6 @@ export const Footer = styled.div`
   md:gap-4
   flex
   flex-row
-  justify-between
   items-center
   bg-transparent
   text-white
@@ -131,6 +132,14 @@ export const Footer = styled.div`
   text-center
   z-10
   `}
+  ${({ isHome }) =>
+    isHome
+      ? tw`
+      justify-end
+      `
+      : tw`
+      justify-between
+      `}
 `
 
 export const BottomToTop = styled.button`
@@ -154,6 +163,34 @@ bg-black
   md:hover:bg-white
   `}
 `
+export const BottomToSwitch = styled.button`
+  ${tw`
+  cursor-pointer
+  ml-2
+  mb-2
+  md:ml-4
+  md:mb-4
+  w-16  
+  h-16
+  px-2
+  fixed
+  z-10
+  pt-1
+  bottom-0
+  left-0
+  items-center
+  border
+  rounded-3xl
+bg-black
+  bg-opacity-10
+  backdrop-blur-sm
+  font-[hel-bd]
+  active:bg-white
+  active:text-[blue]
+  md:hover:bg-white
+  md:hover:text-[blue]
+  `}
+`
 
 export const BottomCopyRight = styled.div`
   ${tw`
@@ -161,7 +198,7 @@ export const BottomCopyRight = styled.div`
   mb-2
   md:mx-4
   md:mb-4
-  w-full
+  w-fit
   h-16
   px-4
   flex
