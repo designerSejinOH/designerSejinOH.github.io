@@ -34,7 +34,7 @@ export default function Page(props) {
             enableDamping
             // enablePan={false}
             enableZoom={false}
-            enableRotate={true}
+            enableRotate={false}
             // autoRotate
             // autoRotateSpeed={0.5}
             maxPolarAngle={Math.PI / 2.2}
