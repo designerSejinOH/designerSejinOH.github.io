@@ -2,9 +2,12 @@ import * as S from '../styles'
 import { Slide } from '@/components/dom/layout/Slide'
 import { useRouter } from 'next/router'
 import { AiOutlineLink } from 'react-icons/ai'
+import { useState } from 'react'
+import { Modal } from '@/components/dom/layout/Modal'
 
 export const ContentsMediaArt = () => {
   const router = useRouter()
+  const [isModalOpen, setIsModalOpen] = useState<number>(-1)
   const projects = [
     {
       title: '끌력 : 서로가 서로를 이끄는 힘 - 소모임 연합 전시',
@@ -31,7 +34,7 @@ export const ContentsMediaArt = () => {
         '/img/works/mindwave04.jpeg',
         '/img/works/mindwave05.jpeg',
       ],
-      vimeo: 'https://vimeo.com/793054998',
+      link: 'https://vimeo.com/793054998',
     },
   ]
   return (
@@ -40,22 +43,28 @@ export const ContentsMediaArt = () => {
         {projects.map((item, index) => (
           <S.FieldContent key={index}>
             <Slide list={item.list} />
-            <S.FieldContentTitle>
+            <S.FieldContentTitle
+              onClick={() => {
+                setIsModalOpen(index)
+              }}>
               <S.FieldDetail>
                 {item.title}
                 <S.FieldContentSemiTitle>{item.subtitle}</S.FieldContentSemiTitle>
               </S.FieldDetail>
-              <AiOutlineLink
-                onClick={() => {
-                  router.push(item.vimeo)
-                }}
-                className='w-10 h-10 cursor-pointer text-black'
-                aria-label='behance'
-              />
+              <AiOutlineLink className='w-10 h-10 cursor-pointer text-black' aria-label='behance' />
             </S.FieldContentTitle>
           </S.FieldContent>
         ))}
       </S.FieldContents>
+      {isModalOpen !== -1 && (
+        <Modal
+          project={projects[isModalOpen].title}
+          link={projects[isModalOpen].link}
+          onClose={() => {
+            setIsModalOpen(-1)
+          }}
+        />
+      )}
     </>
   )
 }

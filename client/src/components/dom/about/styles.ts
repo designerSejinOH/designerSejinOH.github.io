@@ -22,10 +22,11 @@ export const Main = styled.div`
   ${tw`
   flex
   w-full
-  h-[100vw]
   md:h-auto
   order-1
   md:order-2
+  border 
+  rounded-3xl
   `}
 `
 
@@ -33,12 +34,15 @@ export const Aside = styled.div`
   ${tw`
   w-full
   px-4
+  py-2
   flex
   flex-col
   justify-start
   items-start
   gap-2
   order-2
+  border 
+  rounded-3xl
   md:order-1
   `}
 `
@@ -52,8 +56,8 @@ export const Bside = styled.div`
   justify-between
   items-start
   gap-6
-  border-t
-  border-dashed
+  border 
+  rounded-3xl
   border-white
   pt-6
   p-4

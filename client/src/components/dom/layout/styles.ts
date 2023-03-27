@@ -155,8 +155,8 @@ export const BottomToTop = styled.button`
   justify-between
   items-center
   border
-  rounded-3xl
-bg-black
+  rounded-full
+  bg-black
   bg-opacity-10
   backdrop-blur-sm
   active:bg-white
@@ -180,8 +180,8 @@ export const BottomToSwitch = styled.button`
   left-0
   items-center
   border
-  rounded-3xl
-bg-black
+  rounded-full
+  bg-black
   bg-opacity-10
   backdrop-blur-sm
   font-[hel-bd]

@@ -10,9 +10,9 @@ const AboutContainer = ({ children, ...props }) => {
     <>
       <div className='w-full h-full pb-20 mt-20'>
         <S.Wrap>
-          <div className='flex flex-col w-full h-full gap-4 md:flex-row'>
+          <div className='flex  flex-col w-full h-full gap-4 md:flex-row'>
             <S.Aside>
-              <div className=' pt-3 text-4xl leading-none font-[hel-bd]'>SEJIN OH </div>
+              <div className='pt-3 text-4xl leading-none font-[hel-bd]'>SEJIN OH </div>
               <div className='whitespace-pre text-md font-[bold]'>
                 UX | UI DESIGNER , GRAPHIC DESIGNER <br />
                 INTERACTIVE MEDIA ARTIST , <br />

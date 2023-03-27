@@ -2,9 +2,12 @@ import * as S from '../styles'
 import { Slide } from '@/components/dom/layout/Slide'
 import { AiOutlineLink } from 'react-icons/ai'
 import { useRouter } from 'next/router'
+import { Modal } from '@/components/dom/layout/Modal'
+import { useState } from 'react'
 
 export const ContentsWebDesign = () => {
   const router = useRouter()
+  const [isModalOpen, setIsModalOpen] = useState<number>(-1)
   const projects = [
     {
       title: '국립현대미술관 서울 <프로젝트해쉬태그 2022>',
@@ -19,7 +22,7 @@ export const ContentsWebDesign = () => {
       link: 'https://sj-data-visual.vercel.app',
     },
     {
-      title: 'Open Source Lab - Hongik Univ. Interactive Media Art Crew',
+      title: '오픈소스랩 - Hongik Univ. Interactive Media Art Crew',
       subtitle: '웹 디자인 및 개발',
       list: ['/img/works/osl01.jpeg', '/img/works/osl02.jpeg', '/img/works/osl03.jpeg', '/img/works/osl04.jpeg'],
       link: 'https://hi-oslab.github.io',
@@ -32,22 +35,28 @@ export const ContentsWebDesign = () => {
         {projects.map((item, index) => (
           <S.FieldContent key={index}>
             <Slide list={item.list} />
-            <S.FieldContentTitle>
+            <S.FieldContentTitle
+              onClick={() => {
+                setIsModalOpen(index)
+              }}>
               <S.FieldDetail>
                 {item.title}
                 <S.FieldContentSemiTitle>{item.subtitle}</S.FieldContentSemiTitle>
               </S.FieldDetail>
-              <AiOutlineLink
-                onClick={() => {
-                  router.push(item.link)
-                }}
-                className='w-10 h-10 cursor-pointer text-black'
-                aria-label='behance'
-              />
+              <AiOutlineLink className='w-10 h-10 cursor-pointer text-black' aria-label='behance' />
             </S.FieldContentTitle>
           </S.FieldContent>
         ))}
       </S.FieldContents>
+      {isModalOpen !== -1 && (
+        <Modal
+          project={projects[isModalOpen].title}
+          link={projects[isModalOpen].link}
+          onClose={() => {
+            setIsModalOpen(-1)
+          }}
+        />
+      )}
     </>
   )
 }

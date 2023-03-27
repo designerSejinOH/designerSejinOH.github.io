@@ -2,9 +2,13 @@ import * as S from '../styles'
 import { Slide } from '@/components/dom/layout/Slide'
 import { AiOutlineLink } from 'react-icons/ai'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { Modal } from '@/components/dom/layout/Modal'
 
 export const ContentsUXUIDesign = () => {
   const router = useRouter()
+  const [isModalOpen, setIsModalOpen] = useState<number>(-1)
+
   const projects = [
     {
       title: 'Cuby : 3D 방, 미니홈피, 방 꾸미기',
@@ -38,22 +42,28 @@ export const ContentsUXUIDesign = () => {
         {projects.map((item, index) => (
           <S.FieldContent key={index}>
             <Slide list={item.list} />
-            <S.FieldContentTitle>
+            <S.FieldContentTitle
+              onClick={() => {
+                setIsModalOpen(index)
+              }}>
               <S.FieldDetail>
                 {item.title}
                 <S.FieldContentSemiTitle>{item.subtitle}</S.FieldContentSemiTitle>
               </S.FieldDetail>
-              <AiOutlineLink
-                onClick={() => {
-                  router.push(item.link)
-                }}
-                className='w-10 h-10 cursor-pointer text-black'
-                aria-label='behance'
-              />
+              <AiOutlineLink className='w-10 h-10 cursor-pointer text-black' aria-label='behance' />
             </S.FieldContentTitle>
           </S.FieldContent>
         ))}
       </S.FieldContents>
+      {isModalOpen !== -1 && (
+        <Modal
+          project={projects[isModalOpen].title}
+          link={projects[isModalOpen].link}
+          onClose={() => {
+            setIsModalOpen(-1)
+          }}
+        />
+      )}
     </>
   )
 }
