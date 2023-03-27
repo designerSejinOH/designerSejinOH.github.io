@@ -220,3 +220,92 @@ bg-black
   // md:hover:text-[blue]
   `}
 `
+
+export const ModalWrapper = styled(MotionModal)`
+  ${tw`
+  fixed 
+  top-0 
+  left-0 
+  z-20 
+  flex 
+  items-center 
+  justify-center 
+  w-screen 
+  h-screen 
+  text-black 
+  backdrop-blur-sm
+  bg-transparent
+  `}
+`
+
+export const ModalContent = styled.div`
+  ${tw`
+  flex 
+  drop-shadow-xl 
+  flex-col 
+  items-center 
+  justify-center 
+  px-6 
+  py-6 
+  bg-white 
+  gap-4 
+  rounded-2xl 
+  w-[90vw] 
+  h-fit
+  `}
+`
+
+export const ModalContentLayout = styled.div`
+  ${tw`
+  flex 
+  flex-col 
+  items-center 
+  justify-center 
+  gap-3 
+  w-full 
+  text-xl 
+  text-left
+  break-before-auto 
+  font-[medium] 
+  h-fit
+  `}
+`
+
+export const ModalButtonLayout = styled.div`
+  ${tw`
+  flex 
+  flex-row 
+  items-center 
+  justify-center 
+  w-full 
+  text-base 
+  gap-2 
+  font-[medium]
+  `}
+`
+
+export const ModalButton = styled.button<{
+  isActive: boolean
+}>`
+  ${tw`
+  w-full 
+  p-2 
+  border 
+  rounded-full 
+  bg-[blue]  
+  border-[blue] 
+  h-fit
+  `}
+  ${({ isActive }) =>
+    isActive
+      ? tw`
+        text-white
+      bg-[blue]
+      border-[blue]
+      `
+      : tw`
+      text-[blue]
+      bg-transparent
+      border-[blue]
+      `}
+`

@@ -24,7 +24,9 @@ export const Slide = ({ list, ...props }: Props) => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}>
         {list.map((item, index) => (
-          <SwiperSlide key={index} className='relative items-center justify-center w-full cursor-pointer h-fit'>
+          <SwiperSlide
+            key={index}
+            className='relative rounded-lg overflow-hidden items-center justify-center w-full cursor-pointer h-fit'>
             <Image src={item} alt={''} width={1920} height={1080} />
           </SwiperSlide>
         ))}

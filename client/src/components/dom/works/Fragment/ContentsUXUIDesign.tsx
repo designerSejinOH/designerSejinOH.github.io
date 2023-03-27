@@ -4,6 +4,7 @@ import { AiOutlineLink } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Modal } from '@/components/dom/layout/Modal'
+import Image from 'next/image'
 
 export const ContentsUXUIDesign = () => {
   const router = useRouter()
@@ -40,12 +41,15 @@ export const ContentsUXUIDesign = () => {
     <>
       <S.FieldContents>
         {projects.map((item, index) => (
-          <S.FieldContent key={index}>
-            <Slide list={item.list} />
-            <S.FieldContentTitle
-              onClick={() => {
-                setIsModalOpen(index)
-              }}>
+          <S.FieldContent
+            key={index}
+            onClick={() => {
+              setIsModalOpen(index)
+            }}>
+            <div className='relative items-center justify-center w-full cursor-pointer h-fit'>
+              <Image src={item.list[0]} alt={''} width={1920} height={1080} />
+            </div>
+            <S.FieldContentTitle>
               <S.FieldDetail>
                 {item.title}
                 <S.FieldContentSemiTitle>{item.subtitle}</S.FieldContentSemiTitle>
@@ -59,6 +63,7 @@ export const ContentsUXUIDesign = () => {
         <Modal
           project={projects[isModalOpen].title}
           link={projects[isModalOpen].link}
+          list={projects[isModalOpen].list}
           onClose={() => {
             setIsModalOpen(-1)
           }}
