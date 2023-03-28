@@ -253,6 +253,7 @@ export const ModalContent = styled.div`
   gap-2 
   rounded-lg 
   w-[340px] 
+  md:w-[600px]
   h-fit
   overflow-y-scroll
   `}
