@@ -63,6 +63,7 @@ export const ContentsMediaArt = () => {
       {isModalOpen !== -1 && (
         <Modal
           project={projects[isModalOpen].title}
+          describe={projects[isModalOpen].subtitle}
           link={projects[isModalOpen].link}
           list={projects[isModalOpen].list}
           onClose={() => {

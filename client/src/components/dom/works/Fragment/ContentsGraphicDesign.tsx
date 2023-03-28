@@ -27,6 +27,18 @@ export const ContentsGraphicDesign = () => {
       ],
       link: 'https://vimeo.com/792529447',
     },
+    {
+      title: '인터랙티브 한글 타이포그래피',
+      subtitle: '개인 실험 : 모바일 기기의 흔들림에 따라 변하는 한글 조합',
+      list: ['/img/works/typoHangeul.gif'],
+      link: 'https://designersejinoh.github.io/Live/',
+    },
+    {
+      title: '인터랙티브 영어 타이포그래피',
+      subtitle: '개인 실험 : 모바일 기기의 기울기에 따른 제네레이티브 타입페이스',
+      list: ['/img/works/typoMobile.jpeg'],
+      link: 'https://editor.p5js.org/SejinO/full/wEbrTUyGc',
+    },
   ]
   return (
     <>
@@ -53,6 +65,7 @@ export const ContentsGraphicDesign = () => {
       {isModalOpen !== -1 && (
         <Modal
           project={projects[isModalOpen].title}
+          describe={projects[isModalOpen].subtitle}
           link={projects[isModalOpen].link}
           list={projects[isModalOpen].list}
           onClose={() => {

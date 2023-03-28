@@ -19,7 +19,7 @@ export const Header = styled.div<{
     font-[hel-bd]
     text-3xl 
     text-center 
-    z-30
+    z-40
     `}
   ${({ scrollPosition }) =>
     scrollPosition < 20 ? tw`bg-transparent` : tw` bg-gradient-to-b from-gray-500 to-transparent`}
@@ -54,7 +54,7 @@ export const MenuButton = styled.button`
 export const MenuModal = styled(MotionModal)`
   ${tw`
 fixed
-  z-20 
+  z-30 
   w-full 
   h-full 
   flex

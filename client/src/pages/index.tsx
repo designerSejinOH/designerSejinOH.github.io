@@ -40,7 +40,7 @@ export default function Page(props) {
       turnBloom(false)
     }
   }, [WebDesign, UxUiDesign, MediaArt, GraphicDesign])
-  console.log('web' + WebDesign, 'UX' + UxUiDesign, 'Media' + MediaArt, 'Graphic' + GraphicDesign)
+  // console.log('web' + WebDesign, 'UX' + UxUiDesign, 'Media' + MediaArt, 'Graphic' + GraphicDesign)
   return (
     <>
       <Header />
