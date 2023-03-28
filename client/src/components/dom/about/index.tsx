@@ -4,8 +4,10 @@ import { OrbitControls } from '@react-three/drei'
 import { useEffect } from 'react'
 import Header from '@/components/dom/layout/Header'
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
 const AboutContainer = ({ children, ...props }) => {
+  const router = useRouter()
   return (
     <>
       <div className='w-full h-full pb-20 mt-20'>
@@ -18,7 +20,7 @@ const AboutContainer = ({ children, ...props }) => {
                 INTERACTIVE MEDIA ARTIST , <br />
                 WEB DESIGNER & WEB DEVELOPER
               </div>
-              <div className='text-xs md:text-md font-[light]'>
+              <div className='text-xs md:text-md font-[medium]'>
                 SEJIN OH는 인터랙션 디자이너로 시각 및 산업 디자인을 공부하고 인터랙션 기획과 개발을 공부하고 있다.
                 예술과 디자인을 통해 아름다운 것을 그려내고 기술과 개발을 통해 실질적으로 구현되도록 하는 과정을
                 좋아한다. 현재 홍익대학교에서 디자인컨버전스학부에서 인터랙티브 미디어 디자인을 공부하고 있다. 또한
@@ -28,7 +30,7 @@ const AboutContainer = ({ children, ...props }) => {
                 </a>
                 을 운영하고 있다.
               </div>
-              <div className='text-xs md:text-md font-[light]'>
+              <div className='text-xs md:text-md font-[medium]'>
                 Born in Seoul, republic of Korea in 1999, SEJIN OH is a interactive media designer. Main fields of work
                 are web design, graphic design and media art. Now, He is studying colleage of design convergence at
                 Hongik University. Also, He founded Interactive Media Art Crew{' '}
@@ -37,6 +39,13 @@ const AboutContainer = ({ children, ...props }) => {
                 </a>{' '}
                 at Hongik University and is currently a lead member.
               </div>
+              <button
+                className='w-full py-2 my-2 text-[blue] text-sm font-[medium] bg-white rounded-lg hover:bg-[#e5e5e5]'
+                onClick={() => {
+                  router.push('https://designersejinoh.notion.site/f3abcfdc730e427b8bdc852bc0c1b697')
+                }}>
+                📄 이력서 보러가기(Resume)
+              </button>
             </S.Aside>
             <S.Main>{children}</S.Main>
           </div>

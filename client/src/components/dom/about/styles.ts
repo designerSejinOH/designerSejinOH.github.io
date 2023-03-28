@@ -83,12 +83,12 @@ export const BsideTitle = styled.div`
 export const BsideContent = styled.div`
   ${tw`
   text-xs
-  font-[light]
+  font-[medium]
   py-1
   `}
 `
 export const BsideContentTitle = styled.span`
   ${tw`
-  font-[medium]
+  font-[hel-bd]
 `}
 `
