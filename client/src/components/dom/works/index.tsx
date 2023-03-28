@@ -38,6 +38,16 @@ const WorksContainer = ({ ...props }) => {
               <S.Button
                 onClick={() => {
                   window.scrollTo({
+                    top: document.getElementById('isGraphicDesign').offsetTop - 80,
+                    behavior: 'smooth',
+                  })
+                }}>
+                <p className='hidden md:flex'>GRAPHIC DESIGN</p>
+                <p className='flex md:hidden'>GRAPHIC</p>
+              </S.Button>
+              <S.Button
+                onClick={() => {
+                  window.scrollTo({
                     top: document.getElementById('isUXUIDesign').offsetTop - 80,
                     behavior: 'smooth',
                   })
@@ -55,16 +65,6 @@ const WorksContainer = ({ ...props }) => {
                 <p className='hidden md:flex'>MEDIA ART</p>
                 <p className='flex md:hidden'>ART</p>
               </S.Button>
-              <S.Button
-                onClick={() => {
-                  window.scrollTo({
-                    top: document.getElementById('isGraphicDesign').offsetTop - 80,
-                    behavior: 'smooth',
-                  })
-                }}>
-                <p className='hidden md:flex'>GRAPHIC DESIGN</p>
-                <p className='flex md:hidden'>GRAPHIC</p>
-              </S.Button>
             </S.ButtonRow>
           </S.Top>
           <S.Contents>
@@ -79,6 +79,18 @@ const WorksContainer = ({ ...props }) => {
                 />
               </S.FieldTitle>
               <AnimatePresence>{isWebDesign && <ContentsWebDesign />}</AnimatePresence>
+            </S.Field>
+            <S.Field id={'isGraphicDesign'}>
+              <S.FieldTitle isSelected={isGraphicDesign}>
+                <S.FieldTitleText isSelected={isGraphicDesign}>GRAPHIC DESIGN</S.FieldTitleText>
+                <FieldToggle
+                  isSelected={isGraphicDesign}
+                  onClick={() => {
+                    setIsGraphicDesign(!isGraphicDesign)
+                  }}
+                />
+              </S.FieldTitle>
+              <AnimatePresence>{isGraphicDesign && <ContentsGraphicDesign />}</AnimatePresence>
             </S.Field>
             <S.Field id={'isUXUIDesign'}>
               <S.FieldTitle isSelected={isUXUIDesign}>
@@ -103,18 +115,6 @@ const WorksContainer = ({ ...props }) => {
                 />
               </S.FieldTitle>
               <AnimatePresence>{isMediaArt && <ContentsMediaArt />}</AnimatePresence>
-            </S.Field>
-            <S.Field id={'isGraphicDesign'}>
-              <S.FieldTitle isSelected={isGraphicDesign}>
-                <S.FieldTitleText isSelected={isGraphicDesign}>GRAPHIC DESIGN</S.FieldTitleText>
-                <FieldToggle
-                  isSelected={isGraphicDesign}
-                  onClick={() => {
-                    setIsGraphicDesign(!isGraphicDesign)
-                  }}
-                />
-              </S.FieldTitle>
-              <AnimatePresence>{isGraphicDesign && <ContentsGraphicDesign />}</AnimatePresence>
             </S.Field>
           </S.Contents>
         </S.Wrap>

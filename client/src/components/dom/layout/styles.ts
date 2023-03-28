@@ -39,7 +39,7 @@ export const HeaderLogo = styled.div`
   `}
 `
 
-export const MenuButton = styled.button`
+export const MenuButton = styled.div`
   ${tw`
   flex 
   items-center 
@@ -227,8 +227,9 @@ export const ModalWrapper = styled(MotionModal)`
   top-0 
   left-0 
   z-20 
-  flex 
-  items-center 
+  flex
+  pt-20
+  items-start 
   justify-center 
   w-screen 
   h-screen 
@@ -245,13 +246,29 @@ export const ModalContent = styled.div`
   flex-col 
   items-center 
   justify-center 
-  px-6 
-  py-6 
+  pb-6 
   bg-white 
-  gap-4 
-  rounded-2xl 
-  w-[90vw] 
+  border
+  border-[blue]
+  gap-2 
+  rounded-lg 
+  w-[340px] 
   h-fit
+  overflow-y-scroll
+  `}
+`
+
+export const ModalContentTop = styled.div`
+  ${tw`
+  w-full 
+  flex 
+  justify-between 
+  items-center 
+  border-b
+  border-[blue]
+  text-xs 
+  font-[hel-bd] 
+  text-[blue] 
   `}
 `
 
@@ -261,7 +278,8 @@ export const ModalContentLayout = styled.div`
   flex-col 
   items-center 
   justify-center 
-  gap-3 
+  gap-2
+    px-6
   w-full 
   text-xl 
   text-left
@@ -278,6 +296,8 @@ export const ModalButtonLayout = styled.div`
   items-center 
   justify-center 
   w-full 
+    px-6
+
   text-base 
   gap-2 
   font-[medium]
@@ -289,9 +309,11 @@ export const ModalButton = styled.button<{
 }>`
   ${tw`
   w-full 
-  p-2 
+  px-2
+  py-1 
   border 
-  rounded-full 
+  rounded-full
+  text-md
   bg-[blue]  
   border-[blue] 
   h-fit
