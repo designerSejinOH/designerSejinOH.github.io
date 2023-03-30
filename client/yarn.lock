@@ -5060,6 +5060,13 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
+react-animated-cursor@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/react-animated-cursor/-/react-animated-cursor-2.5.2.tgz#7d960034d25960ecfba3c3c5eb5b924514689dca"
+  integrity sha512-eIURDOrMENJ2LIggS6RZJ+P39/zVCF4AihDQNmyS+q973+ZqXP5k3yReub84JOpee1f7zHCoy+sYhsf3lxAQpQ==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-colorful@^5.5.1:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.6.1.tgz#7dc2aed2d7c72fac89694e834d179e32f3da563b"
