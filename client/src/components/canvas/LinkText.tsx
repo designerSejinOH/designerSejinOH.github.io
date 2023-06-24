@@ -116,7 +116,7 @@ export default function LinkText({ bloom, size, text, ...props }) {
               isMesh={undefined}
               updateMorphTargets={undefined}>
               {text}
-              {bloom ? (
+              {!bloom ? (
                 <LayerMaterial
                   ref={materialRef}
                   toneMapped={false}

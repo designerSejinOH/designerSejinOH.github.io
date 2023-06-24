@@ -17,7 +17,7 @@ export default function Page(props) {
   const [UxUiDesign, turnUxUiDesign] = useState(false)
   const [MediaArt, turnMediaArt] = useState(false)
   const [GraphicDesign, turnGraphicDesign] = useState(false)
-  const [bloom, turnBloom] = useState(false)
+  const [bloom, turnBloom] = useState(true)
 
   const turnOFFBloom = () => {
     turnBloom(false)
@@ -50,7 +50,7 @@ export default function Page(props) {
           <pointLight position={[-5, -10, -5]} color='blue' intensity={3} />
           <pointLight position={[0, -5, 5]} intensity={0.5} />
           <directionalLight position={[0, -5, 0]} color='red' intensity={3} />
-          <Environment preset='city' />
+          {/* <Environment preset='city' /> */}
           <Physics>
             {/* <Debug /> */}
             <Effects disableGamma>
