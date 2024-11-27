@@ -1,1 +1,0 @@
-# designerSejinOH.github.io
