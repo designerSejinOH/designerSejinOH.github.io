@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Redirecting to ohsejin.com
+  </title>
+  <style>
+    @font-face {
+      font-family: 'Archivo';
+      src: url('font/Archivo-Variable.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      background: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Archivo', sans-serif;
+    }
+
+    .letter {
+      font-size: 4rem;
+      line-height: 0.9em;
+      font-variation-settings: "wdth"125, "wght"800;
+      display: inline-block;
+      transition: font-variation-settings 1s ease-in-out;
+    }
+
+    .animate-A {
+      animation: pulseA 2s infinite ease-in-out;
+    }
+
+    .animate-B {
+      animation: pulseB 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseA {
+
+      0%,
+      100% {
+        font-variation-settings: "wdth"100, "wght"100;
+      }
+
+      50% {
+        font-variation-settings: "wdth"125, "wght"800;
+      }
+    }
+
+    @keyframes pulseB {
+
+      0%,
+      100% {
+        font-variation-settings: "wdth"125, "wght"800;
+      }
+
+      50% {
+        font-variation-settings: "wdth"100, "wght"100;
+      }
+    }
+
+    .text1 {
+      font-size: 16px;
+      opacity: 0.7;
+      font-weight: 300;
+    }
+
+    .text2 {
+      font-size: 12px;
+      opacity: 0.7;
+      font-weight: 300;
+    }
+
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1rem;
+      gap: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      transition: color 0.3s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <div>
+      <span class="letter animate-A">O</span>
+      <span class="letter animate-B">H</span>
+    </div>
+    <div>
+      <span class="letter animate-B">S</span>
+      <span class="letter animate-A">E</span>
+      <span class="letter animate-B">J</span>
+      <span class="letter animate-A">I</span>
+      <span class="letter animate-B">N</span>
+    </div>
+  </div>
+
+  <div class="textContainer">
+    <div class="text2">good things take time</div>
+    <div class="text1">Redirecting to <a href="https://ohsejin.com" target="_blank">ohsejin.com</a>...</div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://ohsejin.com";
+    }, 2000);
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const letters = document.querySelectorAll('.letter');
+      letters.forEach((letter, index) => {
+        letter.style.transitionDelay = `${index * 0.1}s`;
+      });
+    });
+  </script>
+</body>
+
+</html>
